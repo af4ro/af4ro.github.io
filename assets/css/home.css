@@ -1,0 +1,113 @@
+/** {
+    box-sizing: border-box;
+}*/
+
+html {
+}
+
+html, body {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    line-height: 150%;
+    height: 100%;
+}
+
+/*div {
+height: 100%;
+}*/
+
+.connecting-dots {
+    background-color: #091128;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.title-row {
+    padding-top: 8vmin;
+}
+
+.title {
+    display: block;
+
+    position: relative;
+    color: #111;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10vmin;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
+    padding-bottom: 3%;
+
+    margin: 0 auto;
+    color: #bdc3c7;
+}
+
+.section {
+    width: 100%;
+    padding: 0;
+    height: 100vh;
+}
+
+.madhav-img {
+    border: 10px solid #34495e;
+    opacity: .85;
+}
+
+.social-links > ul {
+    display: block;
+    list-style-type: none;
+    text-align: center;
+    color: #bdc3c7;
+}
+
+.social-links > ul > li {
+    display: inline;
+    margin-left: 2vmin;
+    margin-right: 2vmin;
+}
+
+.social-links > ul > li > a {
+    color: #bdc3c7;
+    z-index: 10;
+}
+
+.social-links i {
+    transition: .75s ease;
+}
+
+.fa-medium:hover {
+    color: #02B875;
+}
+
+.fa-twitter:hover {
+    color: #00aced;
+}
+
+.fa-instagram:hover {
+    color: #517fa4;
+}
+
+.fa-linkedin-square:hover {
+    color: #007bb6;
+}
+
+.fa-github:hover {
+    color: #6e5494;
+}
+
+.fa-envelope-o:hover {
+    color: #e74c3c;
+}
+
+.row.down {
+    margin-top: 4vh;
+}
+
+.row.down a {
+    color: #bdc3c7;
+}
