@@ -24,6 +24,8 @@
 	</script>
 
 
+	<?php if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start("ob_gzhandler"); else ob_start(); ?>
+
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
