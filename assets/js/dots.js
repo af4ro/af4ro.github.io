@@ -2,13 +2,15 @@ var canvasDots = function() {
     var homeScreen = $('#one');
     var canvas = document.querySelector('canvas'),
     ctx = canvas.getContext('2d'),
-    colorDot = '#dddddd',
-    color = '#dddddd';
+    colorDot = '#ffffff',
+    color = '#ffffff';
+    lineWidth = 0.04;
+    densityDivider = 1.25;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     canvas.style.display = 'block';
     ctx.fillStyle = colorDot;
-    ctx.lineWidth = .1;
+    ctx.lineWidth = lineWidth;
     ctx.strokeStyle = color;
 
 
@@ -18,10 +20,9 @@ var canvasDots = function() {
         y: 30 * canvas.height / 100
     };
 
-    // window.innerWidth > window.innerHeight ? window.innerWidth/2 : window.innerHeight/2
 
     var dots = {
-        nb: window.innerWidth < window.innerHeight ? window.innerWidth/2 : window.innerHeight/2,
+        nb: window.innerWidth < window.innerHeight ? window.innerWidth/densityDivider : window.innerHeight/densityDivider,
         distance: window.innerWidth > window.innerHeight ? window.innerWidth/25 : window.innerHeight/25,
         d_radius: window.innerWidth > window.innerHeight ? window.innerWidth/10 : window.innerHeight/10,
         array: []
@@ -37,11 +38,11 @@ var canvasDots = function() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             ctx.fillStyle = colorDot;
-            ctx.lineWidth = .1;
+            ctx.lineWidth = lineWidth;
             ctx.strokeStyle = color;
 
             dots = {
-                nb: window.innerWidth < window.innerHeight ? window.innerWidth/1.25 : window.innerHeight/1.25,
+                nb: window.innerWidth < window.innerHeight ? window.innerWidth/densityDivider : window.innerHeight/densityDivider,
                 distance: window.innerWidth > window.innerHeight ? window.innerWidth/25 : window.innerHeight/25,
                 d_radius: window.innerWidth > window.innerHeight ? window.innerWidth/10 : window.innerHeight/10,
                 array: []
