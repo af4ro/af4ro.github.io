@@ -10,8 +10,8 @@
     
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="icon" href="images/atom.png">
-    <link rel="shortcut icon" href="images/atom.png">
+    <link id="favicon" rel="icon" href="images/favicon-black.png" sizes="32x32" type="image/png">
+    <!-- <link rel="shortcut icon" href="images/favicon.png" sizes="32x32"> -->
 	<link rel="stylesheet" href="assets/css/home.css" charset="utf-8">
 
 	<!-- Fonts -->
@@ -32,18 +32,57 @@
 	gtag('js', new Date());
 
 	gtag('config', 'UA-105316515-1');
+
+	function isDarkBackground(rgb) {
+		// Calculate relative luminance of the background color
+		const [r, g, b] = rgb.match(/\d+/g).map(Number);
+		const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b; // Formula for luminance
+
+		// A luminance threshold (128) is used to differentiate dark from light background
+		return luminance < 128;
+	}
+
+	function checkFaviconContrast() {
+		// Get the computed background color of the body element
+		const backgroundColor = getComputedStyle(document.body).backgroundColor;
+		
+		// Define the black and white favicons
+		const blackFavicon = 'images/favicon-black.png';
+		const whiteFavicon = 'images/favicon-white.png';
+		console.log("Background color", backgroundColor, isDarkBackground(backgroundColor))
+
+		// Check if the background is dark or light and switch the favicon accordingly
+		if (isDarkBackground(backgroundColor)) {
+			document.getElementById('favicon').setAttribute('href', whiteFavicon); // Use white favicon for dark background
+		} else {
+			document.getElementById('favicon').setAttribute('href', blackFavicon); // Use black favicon for light background
+		}
+		console.log("Favicon", document.getElementById('favicon'))
+	}
+
+	// Run the check on load and when the window is resized
+	window.onload = checkFaviconContrast;
+	window.onresize = checkFaviconContrast;
+
+	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5PCQ6VX');
+
 	</script>
 
 	<!-- Google Tag Manager -->
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-5PCQ6VX');</script>
+		})(window,document,'script','dataLayer','GTM-5PCQ6VX');</script> -->
 		<!-- End Google Tag Manager -->
 
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
 	
 	<!-- Pinterest tag -->
 	<meta name="p:domain_verify" content="773b93ad80e1a79814120984f304cb28"/>
@@ -125,11 +164,24 @@
 
 					<li><br/><b>
 						<font size = "6">
-							Software Engineer II (frontend)
+							Software Engineer
 						</font></b>
 						<div style="display:flex; justify-content: space-between; margin-top:0.4em;">
-							<h3>Asana</h3>
-							<h3>May '22 - Present</h3>
+							<h3><a href="https://www.ziphq.com/" target="_blank">Zip HQ</a></h3>
+							<h3>June '24 - Present</h3>
+						</div>
+						<ul>
+							Building new things 👾
+						</ul>
+					</li>
+
+					<li><br/><b>
+						<font size = "6">
+							Software Engineer (frontend)
+						</font></b>
+						<div style="display:flex; justify-content: space-between; margin-top:0.4em;">
+							<h3><a href="https://www.asana.com/" target="_blank">Asana</a></h3>
+							<h3>May '22 - May '24</h3>
 						</div>
 						<ul>
 							Anything and everything Design Systems related 🎨
@@ -148,7 +200,7 @@
 							Senior Software Engineer (full-stack)
 						</font></b>
 						<div style="display:flex; justify-content: space-between; margin-top:0.4em;">
-							<h3>Quantcast</h3>
+							<h3><a href="https://www.quantcast.com/" target="_blank">Quantcast</a></h3>
 							<h3>Oct '21 - May '22</h3>
 						</div>
 						<ul>
@@ -166,7 +218,7 @@
 							Software Engineer (full-stack)
 						</font></b>
 						<div style="display:flex; justify-content: space-between; margin-top:0.4em;">
-							<h3>Quantcast</h3>
+							<h3><a href="https://www.quantcast.com/" target="_blank">Quantcast</a></h3>
 							<h3>Mar '19 - Oct '21</h3>
 						</div>
 						<ul>
@@ -182,7 +234,7 @@
 							Software Engineering Intern
 						</font></b>
 						<div style="display:flex; justify-content: space-between; margin-top:0.4em;">
-							<h3>SendGrid</h3>
+							<h3><a href="https://www.sendgrid.com/" target="_blank">SendGrid</a></h3>
 							<h3>Jun '18 - Sep '18</h3>
 						</div>
 						<ul>
@@ -439,26 +491,9 @@
 					</li>
 					<li>
 						<div class="tooltip">
-							<a href="https://www.facebook.com/1997anshulsinghal" target="_blank" class="icon fa-facebook"><span class="tooltiptext tooltip-top">Facebook</span></a>
-						</div>
-					</li>
-					<li>
-						<div class="tooltip">
-							<a href="https://www.instagram.com/af4ro/" target="_blank" class="icon fa-instagram"><span class="tooltiptext tooltip-top">Instagram</span></a>
-						</div>
-					</li>
-					<li>
-						<div class="tooltip">
-							<a href="https://github.com/af4ro" target="_blank" class="icon fa-github-alt tooltip-alt"><span class="tooltiptext tooltip-top">Github</span></a>
-						</div>
-					</li>
-					<li>
-						<div class="tooltip">
 							<a href="https://www.pinterest.com/af4ro/" target="_blank" class="icon fa-pinterest"><span class="tooltiptext tooltip-top">Pinterest</span></a>
 						</div>
 					</li>
-				</ul>
-				<ul class="icons">
 					<li>
 						<div class="tooltip">
 							<a href="https://vsco.co/af4ro/gallery" target="_blank" class="icon fa-camera"><span class="tooltiptext tooltip-top">VSCO</span></a>
@@ -469,23 +504,6 @@
 							<a href="https://500px.com/p/af4ro" target="_blank" class="icon fa-500px"><span class="tooltiptext tooltip-top">500px</span></a>
 						</div>
 					</li>
-					<li>
-						<div class="tooltip">
-							<a href="https://twitter.com/AF4RO" target="_blank" class="icon fa-twitter"><span class="tooltiptext tooltip-top">Twitter</span></a>
-						</div>
-					</li>
-					<li>
-						<div class="tooltip">
-							<a href="https://www.quora.com/profile/Anshul-Singhal-24" target="_blank" class="icon fa-quora"><span class="tooltiptext tooltip-top">Quora</span></a>
-						</div>
-					</li>
-					<li>
-						<div class="tooltip">
-							<a href="https://medium.com/@af4ro" target="_blank" class="icon fa-medium"><span class="tooltiptext tooltip-top">Medium</span></a>
-						</div>
-					</li>
-	
-					<!-- <li><a href="https://drive.google.com/drive/folders/0B-Lz9FL6GDgKSVYxMDRRN1kzTHc?resourcekey=0-EJvQjoV2AifVaI6GcP7TeA&usp=sharing" class="icon fa-file"><span class="label">Resume</span></a></li> -->
 				</ul>
 
                 <ul class="actions">
@@ -749,11 +767,6 @@
 					</li>
 					<li>
 						<div class="tooltip">
-							<a href="https://www.instagram.com/af4ro/" target="_blank" class="icon fa-instagram"><span class="tooltiptext tooltip-top">Instagram</span></a>
-						</div>
-					</li>
-					<li>
-						<div class="tooltip">
 							<a href="https://vsco.co/af4ro/gallery" target="_blank" class="icon fa-camera"><span class="tooltiptext tooltip-top">VSCO</span></a>
 						</div>
 					</li>
@@ -768,43 +781,14 @@
 						</div>
 					</li>
 				</div>
-                <div class="icons-flex-sub-container">					
-					<li>
-						<div class="tooltip">
-							<a href="https://www.facebook.com/1997anshulsinghal" target="_blank" class="icon fa-facebook"><span class="tooltiptext tooltip-top">Facebook</span></a>
-						</div>
-					</li>
-					<li>
-						<div class="tooltip">
-							<a href="https://github.com/af4ro" target="_blank" class="icon fa-github-alt tooltip-alt"><span class="tooltiptext tooltip-top">Github</span></a>
-						</div>
-					</li>
-	
-					<li>
-						<div class="tooltip">
-							<a href="https://twitter.com/AF4RO" target="_blank" class="icon fa-twitter"><span class="tooltiptext tooltip-top">Twitter</span></a>
-						</div>
-					</li>
-					<li>
-						<div class="tooltip">
-							<a href="https://www.quora.com/profile/Anshul-Singhal-24" target="_blank" class="icon fa-quora"><span class="tooltiptext tooltip-top">Quora</span></a>
-						</div>
-					</li>
-					<li>
-						<div class="tooltip">
-							<a href="https://medium.com/@af4ro" target="_blank" class="icon fa-medium"><span class="tooltiptext tooltip-top">Medium</span></a>
-						</div>
-					</li>
-				</div>
 				
 
-                <!-- <li><a href="https://drive.google.com/drive/folders/0B-Lz9FL6GDgKSVYxMDRRN1kzTHc?resourcekey=0-EJvQjoV2AifVaI6GcP7TeA&usp=sharing" class="icon fa-file"><span class="label">Resume</span></a></li> -->
             </ul>
 
             <ul class="actions">
                 <li><a href="https://drive.google.com/drive/folders/0B-Lz9FL6GDgKSVYxMDRRN1kzTHc?resourcekey=0-EJvQjoV2AifVaI6GcP7TeA&usp=sharing" target="_blank" class="button special icon fa-download">Resume</a></li>
             </ul>
-            <p class="copyright">Created and photograped with &#10084; by: <a href="https://instagram.com/af4ro">Anshul</a></p>
+            <p class="copyright">Created and photograped with &#10084; by: <a href="https://500px.com/p/af4ro">Anshul</a></p>
 
         </footer>
 
